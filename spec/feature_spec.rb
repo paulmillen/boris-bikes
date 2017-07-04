@@ -1,10 +1,8 @@
+=begin
 require './lib/docking_station'
 
 station = DockingStation.new
 
-bike1 = Bike.new
-station.dock(bike1)
-p station
-bike2 = Bike.new
-station.dock(bike2)
-p station
+20.times { station.dock Bike.new }
+station.dock Bike.new
+=end
