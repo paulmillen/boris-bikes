@@ -12,6 +12,8 @@ class DockingStation
 
   def release_bike
     fail "bike not present" if empty?
+    bikes.rotate! if bikes[0].broken?
+    fail "Cannot release, bike broken" if bikes[0].broken?
     bikes.shift
   end
 
