@@ -1,5 +1,5 @@
 class Garage
-  attr_reader :capacity
+  attr_reader :capacity, :garage_bikes
 
   DEFAULT_CAPACITY = 50
 
@@ -18,8 +18,12 @@ class Garage
     garage_bikes << bike
   end
 
+  def fix
+    garage_bikes.map! {|bike| Bike.new}
+  end
+
 private
-attr_reader :garage_bikes
+#attr_reader :garage_bikes
 def full?
  garage_bikes.count >= capacity
 end

@@ -25,6 +25,7 @@ describe Garage do
       expect{ subject.dock(bike) }.to raise_error 'Docking station full'
     end
   end
+
   describe '#dock' do
     it 'docks a bike' do
       bike = double(:bike)
@@ -33,6 +34,21 @@ describe Garage do
     end
     it 'has a default capacity' do
       expect(subject.capacity).to eq subject.capacity
+    end
+  end
+
+  describe '#fix' do
+    it 'returns the same number of bikes' do
+      bike = double(:broken? => true)
+      subject.dock(bike)
+      subject.fix
+      expect(subject.garage_bikes.count).to eq 1
+    end
+    it 'returns a working bike' do
+      bike = double(broken?: true)
+      subject.dock(bike)
+      subject.fix
+      expect(subject.garage_bikes[0]).to be_working
     end
   end
 end
