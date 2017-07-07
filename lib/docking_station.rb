@@ -14,7 +14,6 @@ class DockingStation
   end
 
   private
-
   def working_bikes
     bikes.reject { |bike| bike.broken? }
   end

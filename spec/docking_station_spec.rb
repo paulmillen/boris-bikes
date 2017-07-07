@@ -7,7 +7,7 @@ describe DockingStation do
 
   describe '#release_bike' do
     let(:bike) { double :bike }
-    it 'releases working bikes' do
+    it "releases working bikes" do
       allow(bike).to receive_messages(
       :working? => true,
       :broken? => false)
