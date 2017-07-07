@@ -1,23 +1,23 @@
-require 'bike'
-require 'bike_container'
+require_relative 'bike'
+require_relative 'bike_container'
 
 class Garage
+  attr_accessor :bikes
   include BikeContainer
 
   def release_bike
-    fail "bike not present" if empty?
-    garage_bikes.shift
+    remove_bike
   end
 
-  def dock (bike)
-    fail "Docking station full" if full?
-    garage_bikes << bike
-  end
-
-  def fix
-    garage_bikes.map! {|bike| Bike.new}
+  def store(bike)
+    add_bike bike
+    fix_bikes
   end
 
 private
+
+  def fix_bikes
+    self.bikes.map! {|bike| Bike.new}
+  end
 
 end
