@@ -1,12 +1,8 @@
+require 'bike'
+require 'bike_container'
+
 class Garage
-  attr_reader :capacity, :garage_bikes
-
-  DEFAULT_CAPACITY = 50
-
-  def initialize(capacity = DEFAULT_CAPACITY)
-    @garage_bikes = []
-    @capacity = capacity
-  end
+  include BikeContainer
 
   def release_bike
     fail "bike not present" if empty?
@@ -23,13 +19,5 @@ class Garage
   end
 
 private
-#attr_reader :garage_bikes
-def full?
- garage_bikes.count >= capacity
-end
-
-def empty?
-  garage_bikes.empty?
-end
 
 end

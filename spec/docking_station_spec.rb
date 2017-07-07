@@ -1,4 +1,6 @@
 require 'docking_station'
+require 'support/shared_examples_for_bike_container'
+
 describe DockingStation do
 
   it { is_expected.to respond_to :release_bike}
@@ -72,4 +74,5 @@ describe DockingStation do
       expect { ((subject.capacity)+1).times {subject.dock(double(:bike))}}.to raise_error "Docking station full"
     end
   end
+  it_behaves_like BikeContainer
 end

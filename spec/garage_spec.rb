@@ -1,5 +1,8 @@
 require 'garage'
+require 'support/shared_examples_for_bike_container'
+
 describe Garage do
+  it_behaves_like BikeContainer
 
   it { is_expected.to respond_to :release_bike}
 
